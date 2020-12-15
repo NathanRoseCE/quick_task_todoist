@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import json
 import TodoistWrapper
 import tkinter as tk
@@ -73,7 +72,7 @@ class Application(tk.Tk):
 		self.container.grid_rowconfigure(0, weight = 1) 
 		self.container.grid_columnconfigure(0, weight = 1) 
 		self.__loadConfig(configFilePath)
-		
+		self.title(self.filter)
 		self.currentFrame = None
 		self.showFrame(TaskPage)
 	#end __init__
@@ -84,10 +83,10 @@ class Application(tk.Tk):
 			
 		self.currentFrame= cont(self.container, self)
 		self.currentFrame.grid(row = 0, column = 0, sticky = "nsew")
-
 	#end showFrame
 	def loadFilter(self, filterName):
 		self.filter = filterName
+		self.title(self.filter)
 		self.showFrame(SaveAsDefault)
 	#end loadFilter
 	
